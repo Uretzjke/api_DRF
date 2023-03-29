@@ -30,6 +30,18 @@ python3 -m pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
+Установить djoser:
+
+```
+pip install djoser djangorestframework-simplejwt==4.7.2
+```
+
+Перейти в директорию с `manage.py`
+
+```
+cd yatube_api
+```
+
 Выполнить миграции:
 
 ```
