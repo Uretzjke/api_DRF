@@ -1,5 +1,5 @@
 from django.shortcuts import get_object_or_404
-from posts.models import Follow, Group, Post
+from posts.models import Group, Post
 from rest_framework import filters, viewsets
 from rest_framework.pagination import LimitOffsetPagination
 from rest_framework.permissions import (AllowAny, IsAuthenticated)
@@ -41,13 +41,9 @@ class CommentViewSet(viewsets.ModelViewSet):
 
 
 class FollowViewSet(CreateGetlistViewSet):
-    # если не определять здесь queryset то падают вообще все тесты с ошибкой:
-    # "could not automatically determine the name from the viewset, as it does
-    # not have a `.queryset` attribute"
-    queryset = Follow.objects.all()
     serializer_class = FollowSerializer
-    permission_classes = [IsAuthenticated,]
-    filter_backends = [filters.SearchFilter,]
+    permission_classes = [IsAuthenticated]
+    filter_backends = [filters.SearchFilter]
     search_fields = ('user__username', 'following__username')
 
     def get_queryset(self):

@@ -53,3 +53,7 @@ python3 manage.py migrate
 ```
 python3 manage.py runserver
 ```
+
+После запуска проекта по ссылке
+http://127.0.0.1:8000/redoc/
+станут доступны примеры запросов и документация..
